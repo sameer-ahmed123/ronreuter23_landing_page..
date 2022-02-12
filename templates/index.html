@@ -36,8 +36,13 @@
                     <a href="/products/{{Brands.id}}"> <img style="height:250px" class="card-img-top" src="{{Brands.Brand_Image.url}}" alt="Card image cap"></a>
 					<div class="card-body">
 					<a style="text-decoration:none;" href="/products/{{Brands.id}}"> <strong> <p style="color:#000000" class="card-title text-center text-dark">{{Brands.Brand}}</p> </strong> </a>
-                        <p  style="background-color:red;margin:auto;" class="badge  badge-lg">Days left     {{ Brands.remaining_days}}</p>
-                        <p  style="background-color:green;margin:auto;" class="badge  badge-lg">Days are {{day}}</p>
+                       {% if Brands.remaining_days >= 1  %}
+                        <p style="background-color:red;margin:auto;"  class="badge  badge-lg"> Expired  {{Brands.remaining_days}} days ago</p>
+                        {% elif Brands.remaining_days == 0 %}
+                         <p style="background-color:red;margin:auto;"  class="badge  badge-lg"> Expired  Today  </p>
+                        {% else %}
+                        <p  style="background-color:red;margin:auto;" class="badge  badge-lg">Days left  are: {{ Brands.remaining_days}}</p>
+                        {% endif %}
 					</div>
                     <div class="card-footer p-0 no-gutters">
                     </div>

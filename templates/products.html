@@ -69,9 +69,14 @@
 					<img style="height:250px" class="card-img-top" src="{{Products.Product_Image.url}}" alt="Card image cap">
 					<div class="card-body">
 							<strong><p style="color:black;" class="card-title text-center mt-5">{{Products.Product_name}}</p></strong>
-							<strong><p style="color:black;" class="card-title text-center ">$ {{Products.Product_price}}</p></strong>
-						    <strong><p style="color:black;" class="card-title mt-3" >{{Products.day_left}}</p></strong>
-
+							<strong><p style="color:black;" class="card-title text-center ">${{Products.Product_price}}</p></strong>
+						{% if remaining_date >= 1   %}
+						    <strong><p style="background-color:red;" class="card-title mt-3 badge  badge-lg" >Expired .</p></strong>
+						{% elif remaining_date == 0 %}
+						<strong><p style="background-color:red;margin:auto;"  class="badge  badge-lg"> Expired  Today  </p></strong>
+						{% else %}
+						<strong> <p  style="background-color:red;margin:auto;" class="badge  badge-lg">Expires in {{remaining_date}} days </p></strong>
+						{% endif %}
 					</div>
 
 					<div class="card-footer p-0 no-gutters"></div>

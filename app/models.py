@@ -12,8 +12,8 @@ class Brand(models.Model):
 
     @property
     def remaining_days(self):
-        remaining = self.expiry_date - self.start_date
-        print("remaining are: ",remaining)
+        remaining = (datetime.datetime.now().date() - self.expiry_date.date()).days
+        print("remaining are: ", remaining)
         return remaining
 
     class Meta:
@@ -27,7 +27,7 @@ class Product(models.Model):
     Product_Brand=models.ForeignKey(Brand,on_delete=models.CASCADE ,default=1)
     Product_Image=models.ImageField(upload_to='media/Products')
     Product_price=models.IntegerField()
-    Stock=models.IntegerField()
+
     class Meta:
         db_table='Products'
 

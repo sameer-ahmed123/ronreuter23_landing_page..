@@ -76,31 +76,24 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # Django MySQL database engine driver class.
+        'ENGINE': 'django.db.backends.mysql',
+        # MySQL database host ip.
+        'HOST': '127.0.0.1',
+        # port number.
+        'PORT': '3306',
+        # database name.
+        'NAME': 'new1',
+        # user name.
+        'USER': 'root',
+        # password
+        'PASSWORD': '',
+        # connect options
+        'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'", },
     }
 }
-# DATABASES = {
-#     'default': {
-#         # Django MySQL database engine driver class.
-#         'ENGINE': 'django.db.backends.mysql',
-#         # MySQL database host ip.
-#         'HOST': '127.0.0.1',
-#         # port number.
-#         'PORT': '3306',
-#         # database name.
-#         'NAME': 'new1',
-#         # user name.
-#         'USER': 'root',
-#         # password
-#         'PASSWORD': '',
-#         # connect options
-#         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'", },
-#     }
-# }
 
 
 # Password validation
